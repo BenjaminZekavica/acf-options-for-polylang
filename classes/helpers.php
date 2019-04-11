@@ -66,4 +66,20 @@ class Helpers {
 	public static function get_option_page_ids() {
 		return wp_list_pluck( acf_options_page()->get_pages(), 'post_id' );
 	}
+
+	/**
+	 * Define if a post id has already been localized fr_FR
+	 *
+	 * @param $post_id
+	 *
+	 * @since x.y.z
+	 * @author Maxime CULEA
+	 *
+	 * @return bool
+	 */
+	public static function already_localized( $post_id ) {
+		preg_match( '/[a-z]{2}_[A-Z]{2}/', $post_id, $language );
+
+		return ! empty( $language );
+	}
 }

@@ -158,6 +158,10 @@ class Main {
 			return $future_post_id;
 		}
 
+		if ( Helpers::already_localized( $future_post_id ) ) {
+			return $future_post_id;
+		}
+
 		// If no custom acf key, no need while already impacted by Polylang locale
 		if ( 'options' !== Helpers::original_option_id( $future_post_id ) ) {
 			$dl = acf_get_setting( 'default_language' );
